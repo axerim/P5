@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import '../App.css'; // Chemin relatif correct vers Logements.css
 
 const Logements = () => {
     const [logements, setLogements] = useState([]);
@@ -35,17 +36,14 @@ const Logements = () => {
     }
 
     return (
-        <div>
-            <h1>Liste des logements</h1>
-            <ul>
-                {logements.map((logement) => (
-                    <li key={logement.id}>
-                        <h2>{logement.title}</h2>
-                        <p>{logement.description}</p>
-                    </li>
-                ))}
-            </ul>
-        </div>
+        <section className="logements">
+            {logements.map((logement) => (
+                <div key={logement.id} className="logement-card">
+                    <img src={logement.cover} alt={logement.title} className="logement-image" />
+                    <h3 className="logement-title">{logement.title}</h3>
+                </div>
+            ))}
+        </section>
     );
 };
 
