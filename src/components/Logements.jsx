@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import '../App.css'; // Chemin relatif correct vers Logements.css
+import '../App.css'; 
+import logementsData from '../data/logements.json'; // Import des données locales
 
 const Logements = () => {
     const [logements, setLogements] = useState([]);
@@ -9,16 +10,26 @@ const Logements = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
+                console.log("Tentative de récupération des données depuis l'URL...");
                 const response = await fetch(
                     "https://s3-eu-west-1.amazonaws.com/course.oc-static.com/projects/Front-End+V2/P9+React+1/logements.json"
                 );
+                console.log("Réponse reçue :", response);
+
                 if (!response.ok) {
                     throw new Error("Erreur lors de la récupération des données");
                 }
+
                 const data = await response.json();
-                setLogements(data);
+                console.log("Données récupérées depuis l'URL :", data);
+                setLogements(data); // Utilise les données de l'URL
             } catch (error) {
-                setError(error.message);
+                console.error("Erreur lors de la récupération des données depuis l'URL :", error);
+
+                // Si la requête fetch échoue, utilise les données locales
+                console.log("Utilisation des données locales...");
+                setLogements(logementsData); // Utilise les données locales
+                setError(null); // Réinitialise l'erreur car on utilise les données locales
             } finally {
                 setLoading(false);
             }
