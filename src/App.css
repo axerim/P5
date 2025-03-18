@@ -1,8 +1,10 @@
 /* Styles globaux */
 body {
   font-family: Arial, sans-serif;
+  height: 1472px;
+  width: auto;
   margin: 0;
-  padding: 0;
+  padding: 45px;
   box-sizing: border-box;
 }
 
@@ -30,21 +32,72 @@ header {
   gap: 720.678px;
 }
 
+/* Styles pour le logo */
+.header-logo {
+  height: 50px; /* Taille du logo */
+}
+
 header img {
   height: 50px;
 }
 
+
+/* Styles supplémentaires pour les animations (optionnel) */
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+  from {
+      transform: rotate(0deg);
+  }
+  to {
+      transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+      animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
+
+
+/* NAV */
 nav {
   display: flex;
-  gap: 20px;
+  align-items: flex-start;
+  gap: 57px;
 }
 
 nav a {
   text-decoration: none;
   color: #333;
   font-weight: bold;
-}
 
+  font-size: 1rem; /* Taille de la police */
+  transition: color 0.3s ease; /* Animation de transition pour la couleur */
+}
+/* Styles au survol des liens */
 nav a:hover {
   color: #ff6060;
 }
@@ -175,41 +228,3 @@ footer {
   gap: 28.556px;
 }
 
-/* Styles supplémentaires pour les animations (optionnel) */
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
-
-@keyframes logo-spin {
-  from {
-      transform: rotate(0deg);
-  }
-  to {
-      transform: rotate(360deg);
-  }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-      animation: logo-spin infinite 20s linear;
-  }
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
-}

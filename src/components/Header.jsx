@@ -6,10 +6,12 @@ const Header = () => {
     return (
         <header className="header">
             <img src={logo} alt="Kasa Logo" className="header-logo" />
-            {/* <nav className="header-nav">
+            <nav className="header-nav">
                 <a href="/" className="header-link">Accueil</a>
                 <a href="/about" className="header-link">À Propos</a>
-            </nav> */}
+            </nav>
+
+
         </header>
     );
 };
